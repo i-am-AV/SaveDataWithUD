@@ -26,6 +26,7 @@ final class RegistrationViewController: UIViewController {
         }
         
         view.backgroundColor = .white
+        navigationItem.title = "Регистрация"
         allSetup()
         allConstraints()
     }
@@ -40,7 +41,7 @@ final class RegistrationViewController: UIViewController {
 extension RegistrationViewController {
     private func setupButton() {
         registrateButton.backgroundColor = .systemBlue
-        registrateButton.setTitle("Registrate", for: .normal)
+        registrateButton.setTitle("Зарегистрироваться", for: .normal)
         registrateButton.setTitleColor(.white, for: .normal)
         registrateButton.layer.cornerRadius = 15
         
@@ -50,8 +51,8 @@ extension RegistrationViewController {
     }
     
     @objc private func registrateButtonTapped() {
-        if let login = loginTextField.text, login != "",
-            let password = passwordTextField.text, password != "" {
+        if let login = loginTextField.text?.filter({ $0 != " "}), login != "",
+           let password = passwordTextField.text?.filter({ $0 != " "}), password != "" {
             
             defaults.save(login: login, password: password)
             show(DataViewController(), sender: nil)

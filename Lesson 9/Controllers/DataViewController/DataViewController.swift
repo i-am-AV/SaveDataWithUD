@@ -21,6 +21,7 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBlue
+        navigationItem.title = "Данные"
         setupDataLabel()
         setDataLabelConstraints()
         
@@ -57,7 +58,7 @@ extension DataViewController {
 extension DataViewController {
     private func setupButton() {
         clearButton.backgroundColor = .white
-        clearButton.setTitle("Clear", for: .normal)
+        clearButton.setTitle("Очистить", for: .normal)
         clearButton.setTitleColor(.systemBlue, for: .normal)
         clearButton.layer.cornerRadius = 15
         
